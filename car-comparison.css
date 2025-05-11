@@ -1,0 +1,525 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --header-bg: #f8f8f8;
+  --border-color: #dddddd;
+  --hover-color: #f1f1f1;
+  --even-row-color: #f9f9f9;
+  --highlight-color: #e6f7ff;
+  --box-shadow: rgba(0, 0, 0, 0.1);
+  --footnote-color: #666666;
+  --sticky-bg: #ffffff;
+  --toggle-bg: #cccccc;
+  --toggle-slider: #ffffff;
+  --toggle-active: #2196f3;
+  --focus-outline: #4d90fe;
+}
+
+.dark-mode {
+  --bg-color: #222222;
+  --text-color: #e0e0e0;
+  --header-bg: #333333;
+  --border-color: #444444;
+  --hover-color: #3a3a3a;
+  --even-row-color: #2c2c2c;
+  --highlight-color: #1c3a4a;
+  --box-shadow: rgba(0, 0, 0, 0.3);
+  --footnote-color: #aaaaaa;
+  --sticky-bg: #222222;
+  --toggle-bg: #555555;
+  --toggle-slider: #aaaaaa;
+  --toggle-active: #4da6ff;
+  --focus-outline: #5e9ed6;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  transition: all 0.3s ease;
+  line-height: 1.5;
+}
+
+html {
+  background-color: var(--bg-color);
+  transition: background-color 0.3s ease;
+}
+
+.container {
+  max-width: 100%;
+  overflow-x: auto;
+  position: relative;
+  max-height: 500px;
+  overflow-y: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0;
+  caption-side: top;
+}
+
+caption {
+  font-weight: bold;
+  padding: 10px;
+  text-align: left;
+  color: var(--text-color);
+  font-size: 1.2em;
+}
+
+th,
+td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+th {
+  background-color: var(--header-bg);
+  font-weight: bold;
+  color: var(--text-color);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 2px solid var(--border-color);
+}
+
+/* Make first column sticky */
+td:first-child,
+th:first-child {
+  position: sticky;
+  left: 0;
+  background-color: var(--sticky-bg);
+  z-index: 5;
+  border-right: 1px solid var(--border-color);
+}
+
+/* Increase z-index for the top-left cell (corner) */
+th:first-child {
+  z-index: 15;
+}
+
+tr:nth-child(even) {
+  background-color: var(--even-row-color);
+}
+
+/* Make sure the sticky first cell of even rows matches the row color */
+tr:nth-child(even) td:first-child {
+  background-color: var(--even-row-color);
+}
+
+/* Ensure regular cells have the right background color */
+tr:nth-child(odd) td:not(:first-child) {
+  background-color: var(--bg-color);
+}
+
+/* Ensure the first column cells for odd rows have the right background */
+tr:nth-child(odd) td:first-child {
+  background-color: var(--bg-color);
+}
+
+tr:hover {
+  background-color: var(--hover-color);
+}
+
+/* Make sure the sticky cell color changes on hover */
+tr:hover td:first-child {
+  background-color: var(--hover-color);
+}
+
+.highlight {
+  background-color: var(--highlight-color);
+  font-weight: bold;
+}
+
+/* Make sure the sticky highlight cell keeps its highlight color */
+tr.highlight td:first-child {
+  background-color: var(--highlight-color);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  flex-grow: 1;
+}
+
+.footnote {
+  font-size: 0.8em;
+  color: var(--footnote-color);
+  margin-top: 10px;
+}
+
+/* Toggle Switch */
+.toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#color-scheme {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--toggle-bg);
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--toggle-slider);
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--toggle-active);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Focus styles for all cells */
+td:focus,
+th button:focus {
+  outline: 2px solid var(--focus-outline);
+  outline-offset: -2px;
+  background-color: var(--hover-color);
+  position: relative;
+  z-index: 6;
+}
+
+/* Additional style for tabindex elements */
+[tabindex]:focus:not(.skip-link):not(input) {
+  outline: 2px solid var(--focus-outline);
+  outline-offset: -2px;
+}
+
+/* Focus visible styles for keyboard users */
+.focus-visible {
+  outline: 3px solid var(--focus-outline) !important;
+  outline-offset: -2px !important;
+  position: relative;
+  z-index: 6;
+}
+
+/* Current cell indicator */
+.current-cell {
+  position: relative;
+}
+
+.current-cell::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid var(--focus-outline);
+  pointer-events: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Skip to content link */
+.skip-link {
+  background: var(--focus-outline);
+  color: #fff;
+  font-weight: bold;
+  left: 50%;
+  padding: 8px;
+  position: absolute;
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+  z-index: 1000;
+  outline-offset: 2px;
+}
+
+.skip-link:focus {
+  transform: translateY(0%);
+  outline: 3px solid var(--focus-outline);
+  outline-offset: 2px;
+}
+
+/* Make table headers clickable for sorting */
+th button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+th button:hover {
+  text-decoration: underline;
+}
+
+th button:focus {
+  outline: 2px solid var(--focus-outline);
+  outline-offset: -2px;
+}
+
+th button::after {
+  content: "⇕";
+  font-size: 0.8em;
+  margin-left: 5px;
+}
+
+th button.sort-asc::after {
+  content: "↑";
+}
+
+th button.sort-desc::after {
+  content: "↓";
+}
+
+/* Style for table cells */
+td {
+  max-width: 150px; /* Set a reasonable max width */
+}
+
+/* Specific widths for different columns to balance the table */
+td:nth-child(1) {
+  max-width: 120px;
+} /* Model */
+td:nth-child(2) {
+  max-width: 120px;
+} /* Manufacturer */
+td:nth-child(3) {
+  max-width: 100px;
+} /* Price */
+td:nth-child(4) {
+  max-width: 100px;
+} /* Engine */
+td:nth-child(5) {
+  max-width: 100px;
+} /* Horsepower */
+td:nth-child(6) {
+  max-width: 90px;
+} /* MPG City */
+td:nth-child(7) {
+  max-width: 90px;
+} /* MPG Highway */
+td:nth-child(8) {
+  max-width: 90px;
+} /* Safety */
+td:nth-child(9) {
+  max-width: 90px;
+} /* Cargo */
+td:nth-child(10) {
+  max-width: 200px;
+} /* Recommendation */
+
+@media screen and (max-width: 768px) {
+  th,
+  td {
+    padding: 8px 10px;
+    font-size: 0.9em;
+  }
+
+  td:nth-child(10) {
+    max-width: 120px;
+  }
+}
+
+/* Keyboard help button */
+.keyboard-help {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 900;
+}
+
+#show-keyboard-help {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--focus-outline);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+#show-keyboard-help:hover {
+  transform: scale(1.1);
+}
+
+#show-keyboard-help:focus {
+  outline: 3px solid var(--focus-outline);
+  outline-offset: 2px;
+}
+
+/* Popover styling */
+.popover {
+  position: fixed;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 12px;
+  max-width: 300px;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  font-size: 0.9em;
+  display: none;
+  transition: opacity 0.3s;
+  opacity: 0;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+.popover.visible {
+  display: block;
+  opacity: 1;
+}
+
+.popover-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 1.05em;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 5px;
+}
+
+.recommendation-cell {
+  cursor: pointer;
+  position: relative;
+}
+
+.recommendation-cell:hover,
+.recommendation-cell:focus {
+  text-decoration: underline;
+  background-color: var(--hover-color);
+  outline: 2px solid var(--focus-outline);
+}
+
+/* For touch devices */
+@media (hover: none) {
+  .recommendation-cell:active {
+    background-color: var(--hover-color);
+  }
+}
+
+/* Modal styling */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 20px;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  width: 90%;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.modal h2 {
+  margin-top: 0;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+}
+
+.modal button {
+  margin-top: 20px;
+  padding: 8px 16px;
+  background-color: var(--focus-outline);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal button:hover {
+  opacity: 0.9;
+}
+
+.shortcut {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.key {
+  background-color: var(--even-row-color);
+  padding: 2px 6px;
+  border-radius: 3px;
+  border: 1px solid var(--border-color);
+  font-family: monospace;
+  display: inline-block;
+  margin: 0 2px;
+}

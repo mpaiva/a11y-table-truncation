@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Models Comparison</title>
+    <link rel="stylesheet" href="car-comparison.css" />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="header">
+      <div class="title">
+        <h1 id="table-title">2025 Car Models Comparison</h1>
+      </div>
+      <div class="toggle-container" role="group" aria-labelledby="color-scheme">
+        <span id="color-scheme">Display Mode:</span>
+        <span id="light-label">Light</span>
+        <label
+          class="switch"
+          for="mode-toggle"
+          title="Toggle between light and dark mode"
+        >
+          <input
+            type="checkbox"
+            id="mode-toggle"
+            aria-labelledby="color-scheme light-label dark-label"
+          />
+          <span class="slider" aria-hidden="true"></span>
+        </label>
+        <span id="dark-label">Dark</span>
+      </div>
+    </div>
+
+    <div class="keyboard-help">
+      <button
+        id="show-keyboard-help"
+        aria-label="Show keyboard shortcuts"
+        title="Show keyboard shortcuts"
+      >
+        <span class="sr-only">Keyboard Shortcuts</span>
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
+          <path d="M6 8h.01"></path>
+          <path d="M10 8h.01"></path>
+          <path d="M14 8h.01"></path>
+          <path d="M18 8h.01"></path>
+          <path d="M8 12h.01"></path>
+          <path d="M12 12h.01"></path>
+          <path d="M16 12h.01"></path>
+          <path d="M7 16h10"></path>
+        </svg>
+      </button>
+    </div>
+
+    <main id="main-content">
+      <div class="container" tabindex="0" aria-labelledby="table-title">
+        <table aria-labelledby="table-title">
+          <caption>
+            Comparison of various 2025 car models including price, performance,
+            and specifications.
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">
+                <button type="button" aria-sort="none" data-column="model">
+                  Model
+                </button>
+              </th>
+              <th scope="col">
+                <button
+                  type="button"
+                  aria-sort="none"
+                  data-column="manufacturer"
+                >
+                  Manufacturer
+                </button>
+              </th>
+              <th scope="col">
+                <button type="button" aria-sort="none" data-column="price">
+                  Base Price ($)
+                </button>
+              </th>
+              <th scope="col">
+                <button type="button" aria-sort="none" data-column="engine">
+                  Engine Type
+                </button>
+              </th>
+              <th scope="col">
+                <button type="button" aria-sort="none" data-column="hp">
+                  Horsepower
+                </button>
+              </th>
+              <th scope="col">
+                <button type="button" aria-sort="none" data-column="mpg-city">
+                  MPG City
+                </button>
+              </th>
+              <th scope="col">
+                <button type="button" aria-sort="none" data-column="mpg-hwy">
+                  MPG Highway
+                </button>
+              </th>
+              <th scope="col">
+                <button type="button" aria-sort="none" data-column="safety">
+                  Safety Rating
+                </button>
+              </th>
+              <th scope="col">
+                <button type="button" aria-sort="none" data-column="cargo">
+                  Cargo Space (cu ft)
+                </button>
+              </th>
+              <th scope="col">
+                <button
+                  type="button"
+                  aria-sort="none"
+                  data-column="recommendation"
+                >
+                  Recommendation
+                </button>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td tabindex="0" title="Model S">Model S</td>
+              <td tabindex="0" title="Tesla">Tesla</td>
+              <td tabindex="0" title="84,990" data-value="84990">84,990</td>
+              <td tabindex="0" title="Electric">Electric</td>
+              <td tabindex="0" title="670" data-value="670">670</td>
+              <td tabindex="0" title="121" data-value="121">121</td>
+              <td tabindex="0" title="112" data-value="112">112</td>
+              <td tabindex="0" title="5/5" data-value="5">5/5</td>
+              <td tabindex="0" title="28" data-value="28">28</td>
+              <td
+                class="recommendation-cell"
+                tabindex="0"
+                data-full="Luxury EV with long range. Perfect for tech enthusiasts who want performance and zero emissions. Best for high-income buyers."
+              >
+                Luxury EV with long range
+              </td>
+            </tr>
+            <tr>
+              <td tabindex="0" title="Camry">Camry</td>
+              <td tabindex="0" title="Toyota">Toyota</td>
+              <td tabindex="0" title="27,350" data-value="27350">27,350</td>
+              <td tabindex="0" title="Hybrid">Hybrid</td>
+              <td tabindex="0" title="208" data-value="208">208</td>
+              <td tabindex="0" title="51" data-value="51">51</td>
+              <td tabindex="0" title="53" data-value="53">53</td>
+              <td tabindex="0" title="5/5" data-value="5">5/5</td>
+              <td tabindex="0" title="15.1" data-value="15.1">15.1</td>
+              <td
+                class="recommendation-cell"
+                tabindex="0"
+                data-full="Reliable and fuel-efficient. Great balance of economy and comfort for daily commuting. Best value for families."
+              >
+                Reliable and fuel-efficient
+              </td>
+            </tr>
+            <tr>
+              <td tabindex="0" title="F-150 Lightning">F-150 Lightning</td>
+              <td tabindex="0" title="Ford">Ford</td>
+              <td tabindex="0" title="49,995" data-value="49995">49,995</td>
+              <td tabindex="0" title="Electric">Electric</td>
+              <td tabindex="0" title="452" data-value="452">452</td>
+              <td tabindex="0" title="78" data-value="78">78</td>
+              <td tabindex="0" title="63" data-value="63">63</td>
+              <td tabindex="0" title="4/5" data-value="4">4/5</td>
+              <td tabindex="0" title="52.8" data-value="52.8">52.8</td>
+              <td
+                class="recommendation-cell"
+                tabindex="0"
+                data-full="Electric truck with power. Combines utility with eco-friendly operation. Ideal for contractors who want to go green."
+              >
+                Electric truck with power
+              </td>
+            </tr>
+            <tr>
+              <td tabindex="0" title="Civic">Civic</td>
+              <td tabindex="0" title="Honda">Honda</td>
+              <td tabindex="0" title="23,950" data-value="23950">23,950</td>
+              <td tabindex="0" title="Gas">Gas</td>
+              <td tabindex="0" title="158" data-value="158">158</td>
+              <td tabindex="0" title="33" data-value="33">33</td>
+              <td tabindex="0" title="42" data-value="42">42</td>
+              <td tabindex="0" title="5/5" data-value="5">5/5</td>
+              <td tabindex="0" title="14.8" data-value="14.8">14.8</td>
+              <td
+                class="recommendation-cell"
+                tabindex="0"
+                data-full="Affordable and practical. Excellent first car with good resale value. Perfect for students and young professionals."
+              >
+                Affordable and practical
+              </td>
+            </tr>
+            <tr class="highlight">
+              <td tabindex="0" title="Outback">Outback</td>
+              <td tabindex="0" title="Subaru">Subaru</td>
+              <td tabindex="0" title="28,895" data-value="28895">28,895</td>
+              <td tabindex="0" title="Gas">Gas</td>
+              <td tabindex="0" title="182" data-value="182">182</td>
+              <td tabindex="0" title="26" data-value="26">26</td>
+              <td tabindex="0" title="33" data-value="33">33</td>
+              <td tabindex="0" title="5/5" data-value="5">5/5</td>
+              <td tabindex="0" title="32.5" data-value="32.5">32.5</td>
+              <td
+                class="recommendation-cell"
+                tabindex="0"
+                data-full="Versatile all-wheel drive. Excellent for outdoor enthusiasts and winter driving. Best option for adventure seekers."
+              >
+                Versatile all-wheel drive
+              </td>
+            </tr>
+            <tr>
+              <td tabindex="0" title="ID.4">ID.4</td>
+              <td tabindex="0" title="Volkswagen">Volkswagen</td>
+              <td tabindex="0" title="39,995" data-value="39995">39,995</td>
+              <td tabindex="0" title="Electric">Electric</td>
+              <td tabindex="0" title="201" data-value="201">201</td>
+              <td tabindex="0" title="107" data-value="107">107</td>
+              <td tabindex="0" title="94" data-value="94">94</td>
+              <td tabindex="0" title="5/5" data-value="5">5/5</td>
+              <td tabindex="0" title="30.3" data-value="30.3">30.3</td>
+              <td
+                class="recommendation-cell"
+                tabindex="0"
+                data-full="Practical electric SUV. Good compromise between range and utility. Ideal for environmentally conscious families."
+              >
+                Practical electric SUV
+              </td>
+            </tr>
+            <tr>
+              <td tabindex="0" title="3 Series">3 Series</td>
+              <td tabindex="0" title="BMW">BMW</td>
+              <td tabindex="0" title="43,800" data-value="43800">43,800</td>
+              <td tabindex="0" title="Gas">Gas</td>
+              <td tabindex="0" title="255" data-value="255">255</td>
+              <td tabindex="0" title="26" data-value="26">26</td>
+              <td tabindex="0" title="36" data-value="36">36</td>
+              <td tabindex="0" title="5/5" data-value="5">5/5</td>
+              <td tabindex="0" title="17" data-value="17">17</td>
+              <td
+                class="recommendation-cell"
+                tabindex="0"
+                data-full="Sporty German engineering. Balances luxury with driving dynamics. Perfect for executives who enjoy driving."
+              >
+                Sporty German engineering
+              </td>
+            </tr>
+            <tr>
+              <td tabindex="0" title="Ioniq 6">Ioniq 6</td>
+              <td tabindex="0" title="Hyundai">Hyundai</td>
+              <td tabindex="0" title="41,600" data-value="41600">41,600</td>
+              <td tabindex="0" title="Electric">Electric</td>
+              <td tabindex="0" title="225" data-value="225">225</td>
+              <td tabindex="0" title="113" data-value="113">113</td>
+              <td tabindex="0" title="101" data-value="101">101</td>
+              <td tabindex="0" title="5/5" data-value="5">5/5</td>
+              <td tabindex="0" title="11.2" data-value="11.2">11.2</td>
+              <td
+                class="recommendation-cell"
+                tabindex="0"
+                data-full="Sleek and efficient EV. Outstanding range with futuristic styling. Great option for tech-savvy commuters."
+              >
+                Sleek and efficient EV
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="footnote" aria-labelledby="footnote-heading">
+        <h2 id="footnote-heading" class="sr-only">Additional Information</h2>
+        <ul>
+          <li>
+            All specifications are for base models. Performance may vary with
+            selected options.
+          </li>
+          <li>
+            MPG for electric vehicles shown as MPGe (Miles Per Gallon
+            equivalent).
+          </li>
+          <li>Safety ratings based on NHTSA crash test results.</li>
+          <li>Data compiled as of May 2025.</li>
+        </ul>
+      </div>
+    </main>
+
+    <script src="car-comparison.js"></script>
+  </body>
+</html>
